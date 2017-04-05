@@ -1,26 +1,33 @@
-" My vimrc file based on the vimrc example from Bram Moolenar
-" and various tricks from here and there.
-"
-" Maintainer:   Pierre Blanc
-" Last change:  2012 Mar 07
-"
-
-" Fisrt make sure that this file has the correct folding method.
-set foldmethod=marker
-
-" Then make sure to use English messages and help.
-set helplang=en
-if has('win32')
-    language message en
-endif
-
-" PLUGINS MANAGEMENT
-" Use the vundle plugin to manage all the installed plugins.
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-syntax enable           " enable syntax processing
+"
+" Install the Plug plugin manager and all the plugins.
+source $HOME/.vim/plug.vim
 
+
+" BASE OPTIONS
+
+" Set the leader key to <space> instead of \
+let mapleader="\<Space>"
+
+" Fisrt make sure that this file has the correct folding method.
+set foldmethod=marker
+filetype on
+filetype plugin on
+filetype indent on      " load filetype-specific indent files
+
+" ENCODING
+" Set the defaults encoding and fileformats.
+set encoding=utf8
+set ffs=unix,dos
+
+" COLORS
+syntax enable           " enable syntax processing
+set t_Co=256            " enable 256 colors
+colorscheme molokai
+
+let g:airline_theme='molokai'
 
 
 
@@ -28,9 +35,6 @@ syntax enable           " enable syntax processing
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
-filetype on
-filetype plugin on
-filetype indent on      " load filetype-specific indent files
 set wildmenu            " visual autocomplete for command menu
 set wildmode=longest,full " Set the option of the command line completion.
 set lazyredraw          " redraw only when we need to.
@@ -71,7 +75,7 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 set ignorecase
 set smartcase
-nnoremap <leader><space> :nohlsearch<CR> " stop highlighting old search with \<space>
+nnoremap <leader><leader> :nohlsearch<CR> " stop highlighting old search with \<space>
 
 " FOLDING
 set foldenable          " enable folding
@@ -134,10 +138,6 @@ map <silent> <C-k><C-u> :call Uncomment()<CR>
 " Remap code completion to Ctrl+N and Ctrl+Space. 
 "inoremap <C-Space> <C-n>
 
-" ENCODING
-" Set the defaults encoding and fileformats.
-set encoding=utf8
-set ffs=unix,dos
 
 " CTAGS
 set tags+="C:\\Program Files (x86)\\ctags58"
