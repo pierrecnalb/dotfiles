@@ -37,6 +37,7 @@ set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 set sessionoptions+=resize,winpos
 let python_highlight_all = 1 " Put all the python highlightings on.
+colorscheme molokai
 
 set laststatus=2
 
