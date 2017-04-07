@@ -1,0 +1,49 @@
+" SPACES AND TABS
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4    " Indents will have a width of 4.
+set expandtab       " tabs are spaces
+
+" FOLDING
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+set foldmethod=indent   " fold based on indent level
+
+" SEARCHING
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+set ignorecase
+set smartcase
+nnoremap <leader>h :nohlsearch<CR> " stop highlighting old search
+nnoremap <leader>s :vsc Edit.Find<CR>
+nnoremap <leader>S :vsc Edit.FindinFiles<CR>
+
+" BUILD 
+nnoremap <leader>cp :vsc Build.BuildSelection<CR>
+nnoremap <leader>cs :vsc Build.BuildSolution<CR>
+
+" Windows
+nmap <leader>wo :vsc View.Output<CR>
+nmap <leader>we :vsc View.ErrorList<CR>
+nmap <leader>ws :vsc View.SolutionExplorer<CR>
+nmap <leader>wt :vsc TestExplorer.ShowTestExplorer<CR>
+
+" Navigation
+map H :vsc View.NavigateBackward<CR>
+map L :vsc View.NavigateForward<CR>
+nnoremap ,gg :vsc Edit.GoToDefinition<CR>
+nnoremap ,gG :vsc Edit.GoToImplementation<CR>
+nnoremap <leader><TAB> :vsc Window.NextDocumentWindowNav<CR>
+nnoremap J :vsc Edit.PreviousMethod<CR>
+nnoremap K :vsc Edit.NextMethod<CR>
+nnoremap <space>bh :vsc Window.PreviousTab<CR>
+nnoremap <space>bl :vsc Window.NextTab<CR>
+
+" Code Edit
+nnoremap <Leader>cc :vsc Edit.CommentSelection<CR>
+nnoremap <Leader>cu :vsc Edit.UncommentSelection<CR>
+nmap ,= :vsc Edit.FormatDocument<CR>
+nmap <leader>ff :vsc Project.AddClass<CR>
+
+nmap <Leader>d :vsc Debug.AttachtoProcess<CR>
