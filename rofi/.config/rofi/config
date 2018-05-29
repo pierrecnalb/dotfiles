@@ -1,0 +1,39 @@
+rofi.modi              : drun,window,ssh
+rofi.terminal          : xterm
+# rofi.ssh-client:           ssh
+# rofi.ssh-command:          {terminal} -e "{ssh-client} {host}"
+# rofi.run-command:          {cmd}
+# rofi.run-shell-command:    {terminal} -e "{cmd}"
+rofi.sidebar-mode      : true
+rofi.fuzzy             : true
+rofi.font              : DejaVu Sans Mono\ 10
+rofi.location          : 0
+rofi.width             : 500
+rofi.borderwidth       : 20
+rofi.columns           : 1
+rofi.lines             : 8
+rofi.separator-style   : none
+rofi.hide-scrollbar: true
+rofi.eh: 2
+rofi.padding: 15
+rofi.opacity: "85"
+rofi.bw: 0
+
+rofi.kb-accept-entry        : Control+m,Return,KP_Enter
+rofi.kb-cancel              : Escape,Control+g
+rofi.kb-mode-next           : Control+l
+rofi.kb-mode-previous       : Control+h
+rofi.kb-row-down            : Control+j
+rofi.kb-row-up              : Control+k
+rofi.kb-remove-to-eol       : Control+y
+rofi.kb-remove-to-sol       : Control+u
+rofi.kb-remove-char-back    : Control+s,BackSpace
+rofi.kb-remove-char-forward : Control+d,Delete
+
+rofi.color-enabled: true
+rofi.color-window: #383838, #b5bd68, #8c9440
+rofi.color-normal: #383838, #5f5f5f, #303030, #b5bd68, #5f5f5f
+rofi.color-active: #8c9440, #383838, #de935f, #f0c674, #303030
+rofi.color-urgent: #a54242, #383838, #cc6666, #85678f, #303030
+
+

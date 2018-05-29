@@ -1,0 +1,222 @@
+[colors]
+
+background = ${xrdb:color0:#222}
+background-alt = #444
+foreground = ${xrdb:color7:#222}
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/mybar]
+; DIMENSIONS ;
+width = 100%
+height = 25
+radius = 5.0
+offset-y = 0
+offset-x = 0
+border-top-size = 0
+border-bottom-size = 0
+border-right-size = 0
+border-left-size = 0
+padding-left = 2
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+line-size = 1
+border-size = 0
+
+; LOCATION ;
+monitor = ${env:MONITOR:LVDS-2}
+fixed-center = true
+
+; COLORS ;
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-color = #f00
+border-color = #00000000
+
+; FONTS ;
+font-0 = "Hack:size=10;3"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;3"
+font-3 = "Font Awesome 5 Brands:pixelsize=10;3"
+
+modules-left = powermenu i3
+; modules-center = mpd
+modules-right = backlight volume filesystem memory network cpu wlan eth battery temperature date
+
+tray-position = right
+tray-padding = 2
+tray-transparent = false
+; tray-background = #0063ff
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /home
+label-mounted =  %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/i3]
+type = internal/i3
+pin-workspaces = false
+strip-wsnumbers = true
+enable-scroll = false
+label-mode-padding = 0
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 0
+label-occupied-padding = 0
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 0
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 0
+; label-unfocused-padding = ${self.label-occupied-padding}
+; label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+; label-visible-padding = 10
+
+; [module/mpd]
+; type = internal/mpd
+; format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+; icon-prev = 
+; icon-stop = 
+; icon-play = 
+; icon-pause = 
+; icon-next = 
+; label-song-maxlen = 25
+; label-song-ellipsis = true
+
+[module/backlight]
+type = internal/backlight
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = gmux_backlight
+format = <label> <bar>
+label = 
+bar-width = 8
+bar-foreground-0 = #55aa55
+bar-foreground-1 = #55aa55
+bar-foreground-2 = #55aa55
+bar-foreground-3 = #55aa55
+bar-foreground-4 = #55aa55
+bar-foreground-5 = #f5a70a
+bar-foreground-6 = #ff5555
+bar-gradient = false
+bar-indicator = |
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/memory]
+type = internal/memory
+label =  %percentage_used%%
+format-underline = #4bffdc
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+format-underline = #f90000
+; interval = 2
+
+[module/network]
+type = internal/network
+interface = wlp4s0
+label-connected =  %downspeed% |  %upspeed%
+
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+interval = 5
+label-connected =  %essid%
+format-connected-underline = #9f78e1
+
+[module/eth]
+type = internal/network
+interface = enp0s10
+interval = 3.0
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+[module/date]
+type = internal/date
+date =  %e %B
+date-alt =  %Y-%m-%d
+time = %H:%M
+time-alt = %H:%M:%S
+label = %date% %time%
+format-underline = #0a6cf5
+
+[module/volume]
+type = internal/volume
+format-volume = <ramp-volume> <label-volume>
+format-muted =  0%
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+poll-interval = 1
+full-at = 99
+label-discharging = %percentage%%
+label-charging = %percentage%%
+label-full = %percentage%%
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging =  <label-charging>
+format-discharging-underline = #ffb52a
+format-charging-underline = #55aa55
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+[module/powermenu]
+type = custom/menu
+format-spacing = 1
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close = 
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+menu-0-0 = 
+menu-0-0-exec = sudo reboot
+menu-0-1 = 
+menu-0-1-exec = sudo poweroff
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5

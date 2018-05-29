@@ -1,0 +1,73 @@
+# i3blocks config file
+markup=true
+color=#DBDBDB
+separator=false
+separator_block_width=10
+# border_top=0
+# border_left=0
+# border_right=0
+# border_bottom=4
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+
+# [output]
+# command=$HOME/scripts/monitor.sh
+# interval=60
+# signal=4
+
+[volume]
+label=
+instance=Master
+interval=once
+signal=10
+separator=false
+markup=pango
+# border=#928374
+# background=#cc241d
+
+# [volume]
+# label=    
+# # command=[[ -z "${BLOCK_BUTTON}" ]] || ( [[ "${BLOCK_BUTTON}" == "1" ]] && ((/usr/bin/pavucontrol -t 3 --name "pavucontrol-bar" || true) && $HOME/.config/i3blocks/scripts/volume_control.py signal) || $HOME/.config/i3blocks/scripts/volume_control.py toggle ); $HOME/.config/i3blocks/scripts/volume_control.py i3blocks
+# interval=5
+# signal=1
+# markup=pango
+# border=#cc241d
+
+[disk]
+label=
+interval=30
+
+[memory]
+label=MEM
+separator=false
+interval=30
+
+[bandwidth]
+label=
+# instance=enp2s0
+interval=5
+separator=false
+
+[cpu_usage]
+label=
+interval=10
+min_width=CPU: 100.00%
+separator=false
+
+[load_average]
+label=
+interval=10
+separator=false
+
+[battery]
+interval=30
+
+[date]
+interval=once
+label=
+command=date '+%b %d'
+separator=false
+
+[time]
+interval=60
+label=
+command=date '+%R'
